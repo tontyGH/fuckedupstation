@@ -188,6 +188,8 @@ GLOBAL_LIST_EMPTY(pillars_by_z)
 
 	ADD_TRAIT(our_turf, TURF_Z_TRANSPARENT_TRAIT, ELEMENT_TRAIT(type))
 
+	our_turf.transform = 0
+
 	if(!mapload)
 		update_multi_z(our_turf)
 
