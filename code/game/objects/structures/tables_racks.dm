@@ -25,6 +25,7 @@
 	anchored = TRUE
 	pass_flags_self = PASSTABLE | LETPASSTHROW
 	layer = TABLE_LAYER
+	isometric_mode = ISOMETRIC_TABLE
 	obj_flags = CAN_BE_HIT | IGNORE_DENSITY
 	custom_materials = list(/datum/material/iron =SHEET_MATERIAL_AMOUNT)
 	max_integrity = 100

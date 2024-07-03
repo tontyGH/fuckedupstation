@@ -9,6 +9,7 @@
 	armor_type = /datum/armor/structure_holosign
 	// How can you freeze a trick of the light?
 	resistance_flags = FREEZE_PROOF
+	isometric_mode = ISOMETRIC_BLOCKIFY
 	var/obj/item/holosign_creator/projector
 	var/use_vis_overlay = TRUE
 

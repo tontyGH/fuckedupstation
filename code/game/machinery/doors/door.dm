@@ -20,6 +20,7 @@
 
 	interaction_flags_atom = INTERACT_ATOM_UI_INTERACT
 	blocks_emissive = EMISSIVE_BLOCK_UNIQUE
+	isometric_mode = ISOMETRIC_BLOCKIFY
 
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.1
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.2

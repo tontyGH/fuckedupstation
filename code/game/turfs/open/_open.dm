@@ -1,6 +1,7 @@
 /turf/open
 	layer = LOW_FLOOR_LAYER
 	plane = FLOOR_PLANE
+	isometric_mode = ISOMETRIC_FLATTEN
 	///negative for faster, positive for slower
 	var/slowdown = 0
 

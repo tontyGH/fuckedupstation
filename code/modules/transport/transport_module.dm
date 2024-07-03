@@ -22,6 +22,7 @@
 	appearance_flags = PIXEL_SCALE|KEEP_TOGETHER //no TILE_BOUND since we're potentially multitile
 	// If we don't do this, we'll build our overlays early, and fuck up how we're rendered
 	blocks_emissive = EMISSIVE_BLOCK_NONE
+	isometric_mode = ISOMETRIC_FLATTEN
 
 	///ID used to determine what transport types we can merge with
 	var/transport_id = TRANSPORT_TYPE_ELEVATOR

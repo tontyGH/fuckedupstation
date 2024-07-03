@@ -26,6 +26,7 @@ GLOBAL_DATUM_INIT(status_font, /datum/font, new /datum/font/tiny_unicode/size_12
 	verb_exclaim = "beeps"
 	density = FALSE
 	layer = ABOVE_WINDOW_LAYER
+	isometric_mode = ISOMETRIC_WALLMOUNTED
 
 	light_range = 1.7
 	light_power = 0.7

@@ -11,6 +11,7 @@
 	icon = 'icons/obj/structures/stairs.dmi'
 	icon_state = "stairs"
 	anchored = TRUE
+	isometric_mode = ISOMETRIC_FLATTEN
 	move_resist = INFINITY
 
 	var/force_open_above = FALSE // replaces the turf above this stair obj with /turf/open/openspace

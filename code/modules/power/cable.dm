@@ -19,6 +19,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 	color = CABLE_HEX_COLOR_YELLOW
 	plane = FLOOR_PLANE
 	layer = WIRE_LAYER //Above hidden pipes, GAS_PIPE_HIDDEN_LAYER
+	isometric_mode = ISOMETRIC_FLATTEN
 	anchored = TRUE
 	obj_flags = CAN_BE_HIT
 	var/linked_dirs = 0 //bitflag

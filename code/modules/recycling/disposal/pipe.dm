@@ -12,6 +12,7 @@
 	armor_type = /datum/armor/structure_disposalpipe
 	plane = FLOOR_PLANE
 	layer = DISPOSAL_PIPE_LAYER // slightly lower than wires and other pipes
+	isometric_mode = ISOMETRIC_FLATTEN
 	damage_deflection = 10
 	var/dpdir = NONE // bitmask of pipe directions
 	var/initialize_dirs = NONE // bitflags of pipe directions added on init, see \code\_DEFINES\pipe_construction.dm

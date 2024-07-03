@@ -88,6 +88,7 @@
 /obj/structure/alien/resin/wall
 	name = "resin wall"
 	desc = "Thick resin solidified into a wall."
+	isometric_mode = ISOMETRIC_BLOCKIFY
 
 /obj/structure/alien/resin/wall/block_superconductivity()
 	return 1
@@ -113,6 +114,7 @@
 	resintype = "membrane"
 	smoothing_groups = SMOOTH_GROUP_ALIEN_WALLS
 	canSmoothWith = SMOOTH_GROUP_ALIEN_WALLS
+	isometric_mode = ISOMETRIC_BLOCKIFY
 
 /obj/structure/alien/resin/membrane/make_splitvis()
 	return
@@ -150,6 +152,7 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_ALIEN_WEEDS
 	canSmoothWith = SMOOTH_GROUP_ALIEN_WEEDS + SMOOTH_GROUP_WALLS
+	isometric_mode = ISOMETRIC_FLATTEN
 	///the range of the weeds going to be affected by the node
 	var/node_range = NODERANGE
 	///the parent node that will determine if we grow or die
