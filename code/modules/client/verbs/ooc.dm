@@ -448,6 +448,20 @@ ADMIN_VERB(reset_ooc_color, R_FUN, "Reset Player OOC Color", "Returns player OOC
 
 	init_verbs()
 
+/client/verb/dir_left()
+	set name = "Change Perspective Left"
+	set desc = "Changes your perspective to the left."
+	set category = "OOC"
+
+	dir = turn(dir, -90)
+
+/client/verb/dir_right()
+	set name = "Change Perspective Right"
+	set desc = "Changes your perspective to the right."
+	set category = "OOC"
+
+	dir = turn(dir, 90)
+
 /client/proc/export_preferences()
 	set name = "Export Preferences"
 	set desc = "Export your current preferences to a file."

@@ -147,6 +147,20 @@
 	if(ispath(ai_controller))
 		ai_controller = new ai_controller(src)
 
+	if(isProbablyWallMounted(src) && !isometric_mode)
+		isometric_mode = ISOMETRIC_WALLMOUNTED
+	if(isometric_mode == ISOMETRIC_FLATTEN)
+		flatify()
+	if(isometric_mode == ISOMETRIC_BLOCKIFY)
+		blockify()
+	if(isometric_mode == ISOMETRIC_WALLMOUNTED)
+		wallmountify()
+	if(isometric_mode == ISOMETRIC_TABLE)
+		tableify()
+
+	if(isometric_mode == NONE && ismob(src))
+		pixel_z += 10
+
 	return INITIALIZE_HINT_NORMAL
 
 /**
