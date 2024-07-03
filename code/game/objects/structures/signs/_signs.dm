@@ -4,6 +4,7 @@
 	opacity = FALSE
 	density = FALSE
 	layer = SIGN_LAYER
+	isometric_mode = ISOMETRIC_WALLMOUNTED
 	custom_materials = list(/datum/material/plastic =SHEET_MATERIAL_AMOUNT)
 	max_integrity = 100
 	armor_type = /datum/armor/structure_sign

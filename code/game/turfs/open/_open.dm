@@ -1,5 +1,6 @@
 /turf/open
 	plane = FLOOR_PLANE
+	isometric_mode = ISOMETRIC_FLATTEN
 	///negative for faster, positive for slower
 	var/slowdown = 0
 

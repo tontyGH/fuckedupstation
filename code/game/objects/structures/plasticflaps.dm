@@ -9,6 +9,7 @@
 	anchored = TRUE
 	can_atmos_pass = ATMOS_PASS_NO
 	can_astar_pass = CANASTARPASS_ALWAYS_PROC
+	isometric_mode = ISOMETRIC_BLOCKIFY
 
 /obj/structure/plasticflaps/opaque
 	opacity = TRUE

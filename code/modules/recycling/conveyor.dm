@@ -15,6 +15,7 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 	name = "conveyor belt"
 	desc = "A conveyor belt."
 	layer = BELOW_OPEN_DOOR_LAYER
+	isometric_mode = ISOMETRIC_FLATTEN
 	processing_flags = NONE
 	/// The current state of the switch.
 	var/operating = CONVEYOR_OFF

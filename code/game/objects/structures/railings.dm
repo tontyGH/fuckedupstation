@@ -10,6 +10,7 @@
 	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE
 	layer = ABOVE_TREE_LAYER
 	plane = ABOVE_GAME_PLANE
+	isometric_mode = ISOMETRIC_FLATTEN
 	/// armor is a little bit less than a grille. max_integrity about half that of a grille.
 	armor_type = /datum/armor/structure_railing
 	max_integrity = 25

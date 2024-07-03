@@ -22,7 +22,7 @@
 	// This is static
 	// Done like this to avoid needing to make it dynamic and save cpu time
 	// 4 to the left, 4 down
-	transform = MAP_SWITCH(TRANSLATE_MATRIX(-4, -4), matrix())
+	transform = MAP_SWITCH(TRANSLATE_MATRIX(-4, -4), matrix()) // But this kind of fucks up the isometrics so we will see
 
 	temperature = TCMB
 	var/turf/open/floor/plating/turf_type = /turf/open/misc/asteroid/airless

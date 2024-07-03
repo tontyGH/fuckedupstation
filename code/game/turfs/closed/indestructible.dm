@@ -67,6 +67,7 @@
 	icon_state = ""
 	pixel_x = -64
 	plane = SPLASHSCREEN_PLANE
+	isometric_mode = ISOMETRIC_ABSOLUTELY_NONE
 	bullet_bounce_sound = null
 
 INITIALIZE_IMMEDIATE(/turf/closed/indestructible/splashscreen)

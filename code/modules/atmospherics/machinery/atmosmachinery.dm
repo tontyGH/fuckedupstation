@@ -17,6 +17,7 @@
 	active_power_usage = 0
 	power_channel = AREA_USAGE_ENVIRON
 	layer = GAS_PIPE_HIDDEN_LAYER //under wires
+	isometric_mode = ISOMETRIC_FLATTEN
 	resistance_flags = FIRE_PROOF
 	max_integrity = 200
 	obj_flags = CAN_BE_HIT
