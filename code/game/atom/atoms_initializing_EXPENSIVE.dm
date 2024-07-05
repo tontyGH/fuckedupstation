@@ -153,6 +153,8 @@
 		flatify()
 	if(isometric_mode == ISOMETRIC_BLOCKIFY)
 		blockify()
+	if(isometric_mode == ISOMETRIC_DOOR)
+		doorify()
 	if(isometric_mode == ISOMETRIC_WALLMOUNTED)
 		wallmountify()
 	if(isometric_mode == ISOMETRIC_TABLE)

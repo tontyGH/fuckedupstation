@@ -3,6 +3,7 @@
 	desc = "A bar sign which has not been initialized, somehow. Complain at a coder!"
 	icon = 'icons/obj/machines/barsigns.dmi'
 	icon_state = "empty"
+	isometric_mode = ISOMETRIC_WALLMOUNTED
 	req_access = list(ACCESS_BAR)
 	max_integrity = 500
 	integrity_failure = 0.5

@@ -7,6 +7,7 @@
 	icon = 'icons/obj/structures/smooth/grille.dmi'
 	icon_state = "grille-0"
 	base_icon_state = "grille"
+	isometric_mode = ISOMETRIC_FLATTEN
 	density = TRUE
 	anchored = TRUE
 	pass_flags_self = PASSGRILLE | PASSWINDOW

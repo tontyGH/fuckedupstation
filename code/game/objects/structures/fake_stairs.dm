@@ -8,6 +8,7 @@
 
 	layer = ABOVE_OPEN_TURF_LAYER
 	plane = FLOOR_PLANE //one with the floor
+	isometric_mode = ISOMETRIC_FLATTEN
 
 MAPPING_DIRECTIONAL_HELPERS_EMPTY(/obj/structure/fake_stairs)
 
