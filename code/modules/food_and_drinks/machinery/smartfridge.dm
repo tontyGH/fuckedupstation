@@ -8,6 +8,7 @@
 	icon_state = "smartfridge-icon"
 	base_icon_state = "smartfridge"
 	layer = BELOW_OBJ_LAYER
+	isometric_mode = ISOMETRIC_BLOCKIFY
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/smartfridge
 	light_power = 1

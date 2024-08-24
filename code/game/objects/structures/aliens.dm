@@ -120,6 +120,12 @@
 /obj/structure/alien/resin/membrane/get_icon()
 	return 'icons/obj/structures/smooth/alien/resin_membrane.dmi'
 
+/obj/structure/alien/resin/membrane/make_splitvis()
+	return
+
+/obj/structure/alien/resin/membrane/get_icon()
+	return 'icons/obj/structures/smooth/alien/resin_membrane.dmi'
+
 /obj/structure/alien/resin/attack_paw(mob/user, list/modifiers)
 	return attack_hand(user, modifiers)
 
