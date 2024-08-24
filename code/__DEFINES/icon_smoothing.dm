@@ -249,5 +249,5 @@ DEFINE_BITFIELD(smoothing_junction, list(
 	assert_sorted(unwrapped, "[#smoothing_group_variable] ([type])"); \
 
 // Defines used to convert dirs to 32,32 pixel offsets
-#define DIR_TO_PIXEL_Y(dir) ((dir & NORTH) ? 32 : (dir & SOUTH) ? -32 : 0)
-#define DIR_TO_PIXEL_X(dir) ((dir & EAST) ? 32 : (dir & WEST) ? -32 : 0)
+#define DIR_TO_PIXEL_X(dir) ((dir & EAST) ? ICONSIZE_X : (dir & WEST) ? -ICONSIZE_X : 0)
+#define DIR_TO_PIXEL_Y(dir) ((dir & NORTH) ? ICONSIZE_Y : ((dir & SOUTH) || (dir & EAST)) ? -ICONSIZE_Y : 0)

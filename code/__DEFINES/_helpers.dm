@@ -1,5 +1,16 @@
 // Stuff that is relatively "core" and is used in other defines/helpers
 
+/// The icon_size of the world. This exists to remove all magic numbers from the code, centralizing it to one place \
+/// Note that the world's icon size can be a string ("32x24") and therefore invalid for math, \
+/// So try to use ICONSIZE_X and ICONSIZE_Y instead
+#define ICONSIZE world.icon_size
+
+/// The icon width of the world's icon_size
+#define ICONSIZE_X ICONSIZE
+
+/// The icon height of the world's icon_size
+#define ICONSIZE_Y ICONSIZE
+
 //Returns the hex value of a decimal number
 //len == length of returned string
 #define num2hex(X, len) num2text(X, len, 16)
