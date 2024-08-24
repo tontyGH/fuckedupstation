@@ -3,7 +3,6 @@
 	icon = 'icons/obj/structures/tall.dmi'
 	icon_state = "girder"
 	desc = "A large structural assembly made out of metal; It requires a layer of iron before it can be considered a wall."
-	isometric_mode = ISOMETRIC_BLOCKIFY
 	anchored = TRUE
 	density = TRUE
 	max_integrity = 200
