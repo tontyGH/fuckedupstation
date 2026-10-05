@@ -32,7 +32,7 @@
 	if(.)
 		return
 	var/mob/M = user.mob
-	M.swap_hand()
+	M.cycle_hand()
 	return TRUE
 
 /datum/keybinding/mob/select_hand
@@ -56,14 +56,19 @@
 	. = ..()
 	if(.)
 		return
+
 	var/mob/user_mob = user.mob
 
-	var/active_hand_index = user_mob.active_hand_index
-	var/active_hand_set = ceil(active_hand_index / 2) - 1 // offset
-	active_hand_set += ((active_hand_index - 1) % 2 == hand_index - 1) // conditionals are 1/0 booleans
-
-	var/desired_hand_index = hand_index + (2 * active_hand_set) % user_mob.held_items.len
-	user_mob.swap_hand(desired_hand_index)
+	if(user_mob.active_hand_index % RIGHT_HANDS == hand_index % RIGHT_HANDS) // we're just cycling rows
+		user_mob.cycle_hand(NORTH, climb = FALSE)
+	else // we have to swap columns
+		var/working_index
+		var/inactive_hand_index = user_mob.get_inactive_hand_index()
+		if(inactive_hand_index == hand_index)
+			working_index = user_mob.held_items.len - (RIGHT_HANDS - hand_index)
+		else
+			working_index = inactive_hand_index - 2
+		user_mob.cycle_hand(NORTH, climb = FALSE, initial_index = working_index)
 
 	return TRUE
 

@@ -904,9 +904,11 @@ GAME_VERB_NATIVE(/mob, DisDblClick, ".dblclick", null, argu = null as anything, 
  * Attempts to cycle through hands to select a new hand.
  *
  * cycle_dir: A cardinal (NORTH, SOUTH, EAST, WEST) direction. WEST is forwards and the default.
- * climb: if TRUE, wrapping will swap rows
+ * climb: If TRUE, wrapping will swap rows
+ * silent: If applicable and TRUE, will output messages to the mob
+ * intial_index: The starting point for the iteration loop. Note that this hand is considered *last*
  */
-/mob/proc/cycle_hand(cycle_dir = WEST, climb = TRUE, silent = FALSE)
+/mob/proc/cycle_hand(cycle_dir = WEST, climb = TRUE, silent = FALSE, initial_index = active_hand_index)
 	if(!(cycle_dir in GLOB.cardinals))
 		stack_trace("received invalid cycle_dir [!isnull(cycle_dir) ? cycle_dir : "null"]")
 		return FALSE
@@ -919,13 +921,20 @@ GAME_VERB_NATIVE(/mob, DisDblClick, ".dblclick", null, argu = null as anything, 
 
 	var/hand_count = held_items.len
 	var/num_rows = floor(hand_count / 2)
-	var/row = floor((active_hand_index - 1) / 2)
-	var/column = (active_hand_index - 1) % 2
+	var/row = floor((initial_index - 1) / 2)
+	var/column = (initial_index - 1) % 2
 
-	for(var/i in 1 to ((by_row && !climb) ? num_rows : hand_count)) // worst case
+	var/max_iterations // worst case, we iterate this many times up to our initial_index
+	if(climb)
+		max_iterations = hand_count
+	else if(!by_row)
+		max_iterations = 2
+	else
+		max_iterations = num_rows
+	for(var/i in 1 to max_iterations)
 		if(by_row) // vertically
 			row += step
-			if(row < 0 || row > num_rows)
+			if(row < 0 || row >= num_rows)
 				row = ((row % num_rows) + num_rows) % num_rows
 				if(climb)
 					column = abs(column + step) % 2
@@ -937,11 +946,8 @@ GAME_VERB_NATIVE(/mob, DisDblClick, ".dblclick", null, argu = null as anything, 
 					row = (((row + step) % num_rows) + num_rows) % num_rows
 
 		var/desired_index = (row * 2 + column) + 1
-		if(desired_index == active_hand_index) // we've looped back to the beginning
-			return FALSE
 
 		var/sigresult = SEND_SIGNAL(src, COMSIG_MOB_CYCLE_HAND_INDEX(desired_index), cycle_dir, climb, silent)
-
 		if(sigresult & COMPONENT_BLOCK_CYCLE)
 			return FALSE
 		if(sigresult & COMPONENT_CONTINUE_CYCLE)
