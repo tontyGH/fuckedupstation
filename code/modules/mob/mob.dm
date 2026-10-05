@@ -900,12 +900,59 @@ GAME_VERB_NATIVE(/mob, DisDblClick, ".dblclick", null, argu = null as anything, 
 	SEND_SIGNAL(src, COMSIG_MOB_GET_STATUS_TAB_ITEMS, .)
 	return .
 
+/**
+ * Attempts to cycle through hands to select a new hand.
+ *
+ * cycle_dir: A cardinal (NORTH, SOUTH, EAST, WEST) direction. WEST is forwards and the default.
+ * climb: if TRUE, wrapping will swap rows
+ */
+/mob/proc/cycle_hand(cycle_dir = WEST, climb = TRUE, silent = FALSE)
+	if(!(cycle_dir in GLOB.cardinals))
+		stack_trace("received invalid cycle_dir [!isnull(cycle_dir) ? cycle_dir : "null"]")
+		return FALSE
+
+	if(SEND_SIGNAL(src, COMSIG_MOB_CYCLE_HAND, cycle_dir, climb, silent) & COMPONENT_BLOCK_CYCLE)
+		return FALSE
+
+	var/step = ((cycle_dir & NORTHWEST) != 0) ? 1 : -1
+	var/by_row = cycle_dir & (NORTH|SOUTH)
+
+	var/hand_count = held_items.len
+	var/num_rows = floor(hand_count / 2)
+	var/row = floor((active_hand_index - 1) / 2)
+	var/column = (active_hand_index - 1) % 2
+
+	for(var/i in 1 to ((by_row && !climb) ? num_rows : hand_count)) // worst case
+		if(by_row) // vertically
+			row += step
+			if(row < 0 || row > num_rows)
+				row = ((row % num_rows) + num_rows) % num_rows
+				if(climb)
+					column = abs(column + step) % 2
+		else // horizontally
+			column += step
+			if(column < 0 || column >= 2)
+				column = abs(column) % 2
+				if(climb)
+					row = (((row + step) % num_rows) + num_rows) % num_rows
+
+		var/desired_index = (row * 2 + column) + 1
+		if(desired_index == active_hand_index) // we've looped back to the beginning
+			return FALSE
+
+		var/sigresult = SEND_SIGNAL(src, COMSIG_MOB_CYCLE_HAND_INDEX(desired_index), cycle_dir, climb, silent)
+
+		if(sigresult & COMPONENT_BLOCK_CYCLE)
+			return FALSE
+		if(sigresult & COMPONENT_CONTINUE_CYCLE)
+			continue
+
+		return swap_hand(desired_index, silent = silent)
+	return FALSE
+
 
 /mob/proc/swap_hand(held_index, silent = FALSE)
 	SHOULD_NOT_OVERRIDE(TRUE) // Override perform_hand_swap instead
-
-	if(!held_index)
-		held_index = (active_hand_index % held_items.len) + 1
 
 	if(SEND_SIGNAL(src, COMSIG_MOB_SWAPPING_HANDS, held_index, silent) & COMPONENT_BLOCK_SWAP)
 		return FALSE
