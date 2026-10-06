@@ -21,7 +21,7 @@
 /datum/keybinding/dextrous/swap_hands/row
 	hotkey_keys = list("X")
 	name = "swap_hands_row"
-	full_name = "Swap Hands (Row)"
+	full_name = "Swap Hands (Horizontal)"
 	description = "Switch between the hands on the currently selected row (left/right)"
 	keybind_signal = COMSIG_KB_MOB_SWAPHANDSROW_DOWN
 
@@ -30,7 +30,7 @@
 /datum/keybinding/dextrous/swap_hands/column
 	hotkey_keys = list("ShiftX")
 	name = "swap_hands_column"
-	full_name = "Swap Hands (Column)"
+	full_name = "Swap Hands (Vertical)"
 	description = "Switch between the hands on the currently selected column (up/down)"
 	keybind_signal = COMSIG_KB_MOB_SWAPHANDSCOLUMN_DOWN
 
