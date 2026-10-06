@@ -107,6 +107,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	if (current_version < 44)
 		update_tts_blip_prefs()
 
+	if(current_version < 53)
+		if("swap_hands" in key_bindings["X"])
+			key_bindings["X"] -= "swap_hands"
+			key_bindings["X"] |= "swap_hands_row"
+
 /datum/preferences/proc/update_character(current_version, list/save_data)
 	if (current_version < 41)
 		migrate_character_to_tgui_prefs_menu()
@@ -167,10 +172,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	if(current_version < 52)
 		migrate_gendered_nonbinary_physique(save_data)
-
-	if(current_version < 53)
-		if(key_bindings["X"] == "swap_hands")
-			key_bindings["X"] = list("swap_hands_row")
 
 /// checks through keybindings for outdated unbound keys and updates them
 /datum/preferences/proc/check_keybindings()
