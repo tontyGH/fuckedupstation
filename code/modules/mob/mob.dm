@@ -960,6 +960,12 @@ GAME_VERB_NATIVE(/mob, DisDblClick, ".dblclick", null, argu = null as anything, 
 /mob/proc/swap_hand(held_index, silent = FALSE)
 	SHOULD_NOT_OVERRIDE(TRUE) // Override perform_hand_swap instead
 
+	if(!isnum(held_index))
+		CRASH("You passed [held_index] into swap_hand instead of a number. WTF man")
+
+	if(held_index < 1 || held_index > get_num_hand_slots())
+		CRASH("held_index out of bounds ([held_index])")
+
 	if(SEND_SIGNAL(src, COMSIG_MOB_SWAPPING_HANDS, held_index, silent) & COMPONENT_BLOCK_SWAP)
 		return FALSE
 
@@ -975,9 +981,6 @@ GAME_VERB_NATIVE(/mob, DisDblClick, ".dblclick", null, argu = null as anything, 
 	PROTECTED_PROC(TRUE)
 	if (!HAS_TRAIT(src, TRAIT_CAN_HOLD_ITEMS))
 		return FALSE
-
-	if(!isnum(held_index))
-		CRASH("You passed [held_index] into swap_hand instead of a number. WTF man")
 
 	var/previous_index = active_hand_index
 	active_hand_index = held_index
