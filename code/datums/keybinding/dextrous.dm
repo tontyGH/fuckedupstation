@@ -75,7 +75,7 @@
 		var/working_index
 		var/inactive_hand_index = user_mob.get_inactive_hand_index()
 		if(inactive_hand_index == hand_index)
-			working_index = user_mob.held_items.len - (RIGHT_HANDS - hand_index)
+			working_index = user_mob.get_num_hand_slots() - (RIGHT_HANDS - hand_index)
 		else
 			working_index = inactive_hand_index - 2
 		user_mob.cycle_hand(NORTH, climb = FALSE, initial_index = working_index)

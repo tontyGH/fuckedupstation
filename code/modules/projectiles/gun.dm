@@ -430,7 +430,7 @@
 		// We need to iterate once to get the total spread
 		// While we're at it let's cache the guns
 		var/list/obj/item/gun/valid_guns = list()
-		for(var/obj/item/gun/gun in user.held_items)
+		for(var/obj/item/gun/gun as anything in user.get_held_items_of_type(/obj/item/gun))
 			if(gun == src || gun.weapon_weight >= WEAPON_MEDIUM)
 				continue
 			else if(gun.can_trigger_gun(user, akimbo_usage = TRUE))
