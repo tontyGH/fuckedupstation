@@ -377,8 +377,9 @@
 	if(!user.Adjacent(victim))
 		return
 
+	//FIXME: Is this not just looking for an empty hand?
 	if(user.get_active_held_item() && !user.get_inactive_held_item())
-		user.swap_hand()
+		user.swap_hand(user.get_inactive_hand_index())
 
 	if(user.get_active_held_item())
 		return
