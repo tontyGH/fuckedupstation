@@ -981,8 +981,6 @@ GAME_VERB_NATIVE(/mob, DisDblClick, ".dblclick", null, argu = null as anything, 
 
 	var/previous_index = active_hand_index
 	active_hand_index = held_index
-
-	// update the previous handset
 	hud_used?.update_inventory_slot(ITEM_SLOT_HANDS, previous_index)
 	hud_used?.update_inventory_slot(ITEM_SLOT_HANDS, held_index)
 	return TRUE
