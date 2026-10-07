@@ -388,7 +388,7 @@
 
 	if(held_index == offhand_index)
 		if(!silent)
-			to_chat(user, span_warning("The [user.get_held_index_name(held_index)] is too busy holding [parent]."))
+			to_chat(user, span_warning("\The [user.get_held_index_name(held_index)] is too busy holding [parent]."))
 		return COMPONENT_BLOCK_SWAP
 
 /datum/component/two_handed/proc/on_cycling_hands(mob/source, cycle_dir, climb, silent)
